@@ -6,7 +6,10 @@ import { Provider } from 'react-redux';
 import store from './config/store';
 import Loading from '@components/Loading';
 import NotFound from '@components/NotFound';
+import { firestore } from "./firebase";
 
+
+firestore.collection('users').doc('jeonsol').get().then((doc) => console.log(doc.data()))
 const App = () => {
   return (
     <Provider store={store}>
