@@ -9,7 +9,7 @@ import NotFound from '@components/NotFound';
 import { firestore } from "./firebase";
 
 
-firestore.collection('users').doc('vlvFZI9w3x9dg3yUORak').get().then((doc) => console.log(doc.data()))
+firestore.collection('users').doc('jeonsol').get().then((doc) => console.log(doc.data()))
 const App = () => {
   return (
     <Provider store={store}>
