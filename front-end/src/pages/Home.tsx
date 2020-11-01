@@ -14,17 +14,18 @@ interface IOwnProps {
 const Home: React.FC<IOwnProps> = ({
 }) => {
   const [showLayer, setShowLayer] = useState(false);
-  const on = () =>  setShowLayer(true);
-  const off = () =>  setShowLayer(false);
+
   return (
     <div>
       <h1>Home</h1>
       <Link to='/detail/1'>go Detail!</Link>
-      <div><button onClick={on}>켬 </button></div>
-      <div><button onClick={off}>끔 </button></div>
+      <div><button onClick={() =>  setShowLayer(true)}>켬 </button></div>
       
       {showLayer && (
-        <div className={cx('layer')}>레이어</div>
+        <div className={cx('layer')}>
+          레이어
+          <div><button onClick={() =>  setShowLayer(false)}>끔 </button></div>
+        </div>
       )}
     </div>
   );
