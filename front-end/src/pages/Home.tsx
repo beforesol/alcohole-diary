@@ -21,6 +21,10 @@ const Home: React.FC<IOwnProps> = ({
       <Link to='/detail/1'>go Detail!</Link>
       <div><button onClick={() =>  setShowLayer(true)}>켬 </button></div>
       
+      <div className={cx('list_item')}>1</div>
+      <div className={cx('list_item')}>2</div>
+      <div className={cx('list_item')}>3</div>
+
       {showLayer && (
         <div className={cx('layer')}>
           레이어
