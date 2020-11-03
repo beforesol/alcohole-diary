@@ -69,6 +69,7 @@
   },
   "dependencies": {
     "firebase-tools": "^8.13.1",
-    "global": "^4.4.0"
+    "global": "^4.4.0",
+    "react-kakao-login": "^2.0.2"
   }
 }
