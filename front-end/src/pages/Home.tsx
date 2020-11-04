@@ -15,16 +15,35 @@ const Home: React.FC<IOwnProps> = ({
 }) => {
   const [showLayer, setShowLayer] = useState(false);
 
+  const AlcoholList = [
+    {
+      type : '소주',
+      count : '0',
+      unit : '병'
+    },
+    {
+      type : '맥주',
+      count : '0',
+      unit : '병'
+    },
+    {
+      type : '와인',
+      count : '0',
+      unit : '병'
+    }
+  ];
+ 
+  const Alcohols = AlcoholList.map((Alcohol) =>
+  <div className={cx('list_item')}>{Alcohol.type} {Alcohol.count} {Alcohol.unit}</div>
+  )
+ 
+
   return (
     <div>
       <h1>Home</h1>
       <Link to='/detail/1'>go Detail!</Link>
       <div><button onClick={() =>  setShowLayer(true)}>켬 </button></div>
-      
-      <div className={cx('list_item')}>1</div>
-      <div className={cx('list_item')}>2</div>
-      <div className={cx('list_item')}>3</div>
-
+      {Alcohols}
       {showLayer && (
         <div className={cx('layer')}>
           레이어
