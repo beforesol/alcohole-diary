@@ -4,6 +4,7 @@ import styles from './Login.scss';
 import { Link } from 'react-router-dom';
 // import KakaoLogin from 'react-kakao-login'
 import KakaoLogin from '@components/KakaoLogin';
+import { UserProfile } from 'alcoholeDiary';
 
 const cx = classNames.bind(styles);
 
@@ -13,9 +14,13 @@ interface IOwnProps {
 const Login: React.FC<IOwnProps> = ({
 }) => {
   return (
-    <KakaoLogin
-      token={'20e658648ba462950843d2a595aaebe8'}
-    />
+    <div className={cx('kakao_login_wrap')}>
+      <KakaoLogin
+        onSuccess={(res: any) => { console.log(res) }}
+        onFail={() => { console.log('fail login') }}
+        onLogout={() => { alert('로그아웃 되었습니다') }}
+      />
+    </div>
   )
 };
 
