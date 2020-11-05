@@ -1,14 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { loadJs } from '@utils/loadJs';
+import React from 'react';
 import { KakaoLoginProps, LoginResponse, UserProfile } from 'alcoholeDiary';
 
 import styles from './KakaoLogin.scss';
 import classNames from 'classnames/bind';
-import { useHistory } from 'react-router';
+import { useLogin } from '@hooks/useLogin';
 import { ROUTE_PATH } from '../routes';
 
 const cx = classNames.bind(styles);
-
 
 declare global {
   interface Window {
@@ -24,21 +22,20 @@ const KakaoLogin: React.FC<KakaoLoginProps> = ({
   throughTalk = true,
   persistAccessToken = true,
 }) => {
-  const [isLoggedin, setIsLoggedin] = useState<boolean>(window.Kakao?.Auth.getAccessToken());
-  const history = useHistory();
+  const { isLoggedin, setIsLoggedin } = useLogin();
 
   const login = () => {
-    window.Kakao?.Auth.login({
+    window.Kakao ?.Auth.login({
       throughTalk,
       persistAccessToken,
       success: (response: LoginResponse) => {
         setIsLoggedin(true);
         onSuccess({ response });
-        window.Kakao?.API.request({
+        window.Kakao ?.API.request({
           url: "/v2/user/me",
           success: (_profile: UserProfile) => {
             // dispatch(setUserProfile(profile))
-            history.push(ROUTE_PATH.HOME.path);
+            window.location.href = ROUTE_PATH.HOME.path;
           },
           fail: onFail,
         });
@@ -52,8 +49,8 @@ const KakaoLogin: React.FC<KakaoLoginProps> = ({
   }
 
   const handleClickLogout = () => {
-    window.Kakao?.Auth.logout(() => {
-      onLogout?.();
+    window.Kakao ?.Auth.logout(() => {
+      onLogout ?.();
       setIsLoggedin(false);
     });
   }
@@ -79,13 +76,15 @@ const KakaoLogin: React.FC<KakaoLoginProps> = ({
       >
         {`카카오 계정 ${loginText}`}
       </button>
-      <button
-        type="button"
-        onClick={handleClickLogOutIn}
-        className={cx('login_text')}
-      >
-        다른 아이디로 로그인 하기
+      {isLoggedin && (
+        <button
+          type="button"
+          onClick={handleClickLogOutIn}
+          className={cx('login_text')}
+        >
+          다른 아이디로 로그인 하기
       </button>
+      )}
     </div>
   )
 };
