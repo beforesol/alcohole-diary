@@ -20,23 +20,21 @@ const Main = () => {
       {isLoadedKaKaoSdk ? (
         <>
           {isLoggedin ? (
-            <Provider store={store}>
-              <BrowserRouter>
-                <Suspense fallback={<Loading />}>
-                  <Switch>
-                    {routes.map((route, index) =>
-                      <Route
-                        key={index}
-                        exact={route.exact}
-                        path={route.path}
-                        component={route.component}
-                      />
-                    )}
-                    <Route component={NotFound} />
-                  </Switch>
-                </Suspense>
-              </BrowserRouter>
-            </Provider>
+            <BrowserRouter>
+              <Suspense fallback={<Loading />}>
+                <Switch>
+                  {routes.map((route, index) =>
+                    <Route
+                      key={index}
+                      exact={route.exact}
+                      path={route.path}
+                      component={route.component}
+                    />
+                  )}
+                  <Route component={NotFound} />
+                </Switch>
+              </Suspense>
+            </BrowserRouter>
           ) : (
               <Login />
             )}
@@ -50,9 +48,11 @@ const Main = () => {
 
 const App = () => {
   return (
-    <LoginProvider>
-      <Main />
-    </LoginProvider>
+    <Provider store={store}>
+      <LoginProvider>
+        <Main />
+      </LoginProvider>
+    </Provider>
   )
 };
 

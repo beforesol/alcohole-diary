@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from './Home.scss';
 import { Link } from 'react-router-dom';
+import Header from '@components/Header';
 
 const cx = classNames.bind(styles);
 /*
@@ -17,14 +18,11 @@ const Home: React.FC<IOwnProps> = ({
 
   return (
     <div>
-      <h1>Home</h1>
-      <Link to='/detail/1'>go Detail!</Link>
-      <div><button onClick={() =>  setShowLayer(true)}>켬 </button></div>
-      
+      <Header onClickModeBtn={() => setShowLayer(true)} />
+
       {showLayer && (
         <div className={cx('layer')}>
-          레이어
-          <div><button onClick={() =>  setShowLayer(false)}>끔 </button></div>
+          <div><button onClick={() => setShowLayer(false)}>끔 </button></div>
         </div>
       )}
     </div>

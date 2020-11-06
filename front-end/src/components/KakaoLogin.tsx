@@ -4,7 +4,6 @@ import { KakaoLoginProps, LoginResponse, UserProfile } from 'alcoholeDiary';
 import styles from './KakaoLogin.scss';
 import classNames from 'classnames/bind';
 import { useLogin } from '@hooks/useLogin';
-import { ROUTE_PATH } from '../routes';
 
 const cx = classNames.bind(styles);
 
@@ -25,21 +24,10 @@ const KakaoLogin: React.FC<KakaoLoginProps> = ({
   const { isLoggedin, setIsLoggedin } = useLogin();
 
   const login = () => {
-    window.Kakao ?.Auth.login({
+    window.Kakao?.Auth.login({
       throughTalk,
       persistAccessToken,
-      success: (response: LoginResponse) => {
-        setIsLoggedin(true);
-        onSuccess({ response });
-        window.Kakao ?.API.request({
-          url: "/v2/user/me",
-          success: (_profile: UserProfile) => {
-            // dispatch(setUserProfile(profile))
-            window.location.href = ROUTE_PATH.HOME.path;
-          },
-          fail: onFail,
-        });
-      },
+      success: onSuccess,
       fail: onFail
     });
   }
@@ -49,8 +37,8 @@ const KakaoLogin: React.FC<KakaoLoginProps> = ({
   }
 
   const handleClickLogout = () => {
-    window.Kakao ?.Auth.logout(() => {
-      onLogout ?.();
+    window.Kakao?.Auth.logout(() => {
+      onLogout?.();
       setIsLoggedin(false);
     });
   }
@@ -83,7 +71,7 @@ const KakaoLogin: React.FC<KakaoLoginProps> = ({
           className={cx('login_text')}
         >
           다른 아이디로 로그인 하기
-      </button>
+        </button>
       )}
     </div>
   )

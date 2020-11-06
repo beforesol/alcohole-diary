@@ -1,6 +1,8 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { loadJs } from '@utils/loadJs';
 import { UserProfile } from 'alcoholeDiary';
+import { useDispatch } from 'react-redux';
+import { setUserProfile } from '@reducers/UserReducer';
 
 const LoginContext = createContext({
   isLoadedKaKaoSdk: false,
@@ -12,6 +14,8 @@ const LoginProvider = ({ children }: { children: any }) => {
   const [isLoggedin, setIsLoggedin] = useState<boolean>(false);
   const [isLoadedKaKaoSdk, setIsLoadedKaKaoSdk] = useState(false);
 
+  const dispatch = useDispatch();
+
   const initialValue = {
     isLoadedKaKaoSdk,
     isLoggedin,
@@ -20,16 +24,17 @@ const LoginProvider = ({ children }: { children: any }) => {
 
   useEffect(() => {
     loadJs('//developers.kakao.com/sdk/js/kakao.min.js', 'kakao-sdk').then(() => {
-      window.Kakao ?.init('20e658648ba462950843d2a595aaebe8');
+      window.Kakao?.init('20e658648ba462950843d2a595aaebe8');
 
       const isLogin = window.Kakao.Auth.getAccessToken();
       setIsLoadedKaKaoSdk(true);
 
       if (isLogin) {
         setIsLoggedin(true);
-        window.Kakao ?.API.request({
+        window.Kakao?.API.request({
           url: "/v2/user/me",
-          success: (_profile: UserProfile) => {
+          success: (profile: UserProfile) => {
+            dispatch(setUserProfile(profile))
             // dispatch()
           },
         });

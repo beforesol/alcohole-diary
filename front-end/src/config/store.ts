@@ -2,13 +2,11 @@ import { combineReducers } from 'redux';
 import { Action, configureStore } from '@reduxjs/toolkit';
 import { ThunkAction } from 'redux-thunk';
 
-// import DetailReducer from '../reducers/DetailReducer';
-// import ContentsReducer from '../reducers/ContentsReducer';
+import UserReducer from '@reducers/UserReducer';
 
 
 const rootReducer = combineReducers({
-  // detail: DetailReducer,
-  // contents: ContentsReducer,
+  user: UserReducer
 });
 
 declare global {
