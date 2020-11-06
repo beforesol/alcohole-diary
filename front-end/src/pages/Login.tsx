@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from './Login.scss';
 import KakaoLogin from '@components/KakaoLogin';
-import { UserProfile } from 'alcoholeDiary';
 import { ROUTE_PATH } from '../routes';
 
 const cx = classNames.bind(styles);
