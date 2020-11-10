@@ -9,6 +9,7 @@ import NotFound from '@components/NotFound';
 import Login from '@pages/Login';
 import { firestore } from "./firebase";
 import LoginProvider, { useLogin } from '@hooks/useLogin';
+import Layout from '@components/Layout';
 
 firestore.collection('users').doc('jeonsol').get().then((doc) => console.log(doc.data()))
 
@@ -21,19 +22,21 @@ const Main = () => {
         <>
           {isLoggedin ? (
             <BrowserRouter>
-              <Suspense fallback={<Loading />}>
-                <Switch>
-                  {routes.map((route, index) =>
-                    <Route
-                      key={index}
-                      exact={route.exact}
-                      path={route.path}
-                      component={route.component}
-                    />
-                  )}
-                  <Route component={NotFound} />
-                </Switch>
-              </Suspense>
+              <Layout >
+                <Suspense fallback={<Loading />}>
+                  <Switch>
+                    {routes.map((route, index) =>
+                      <Route
+                        key={index}
+                        exact={route.exact}
+                        path={route.path}
+                        component={route.component}
+                      />
+                    )}
+                    <Route component={NotFound} />
+                  </Switch>
+                </Suspense>
+              </Layout>
             </BrowserRouter>
           ) : (
               <Login />

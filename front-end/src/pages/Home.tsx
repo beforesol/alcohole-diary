@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from './Home.scss';
 import { Link } from 'react-router-dom';
-import Header from '@components/Header';
+import Calendar from '@components/Calendar';
 
 const cx = classNames.bind(styles);
 /*
@@ -17,8 +17,8 @@ const Home: React.FC<IOwnProps> = ({
   const [showLayer, setShowLayer] = useState(false);
 
   return (
-    <div>
-      <Header onClickModeBtn={() => setShowLayer(true)} />
+    <div className={cx('home')}>
+      <Calendar />
 
       {showLayer && (
         <div className={cx('layer')}>
