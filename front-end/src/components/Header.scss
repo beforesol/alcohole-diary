@@ -3,10 +3,15 @@
   height: 30px;
   border-bottom: 1px solid red;
   text-align: center;
-  .login_btn {
+  .logout_btn {
     position: absolute;
     top: 0;
     left: 0;
+  }
+  .icon_logout {
+    width: 20px;
+    height: 20px;
+    vertical-align: top;
   }
   .mode_btn {
     position: absolute;
