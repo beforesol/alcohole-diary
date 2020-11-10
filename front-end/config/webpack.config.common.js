@@ -43,7 +43,7 @@ module.exports = {
       '@api': path.resolve('./src/api'),
       '@constants': path.resolve('./src/constants'),
       '@modules': path.resolve('./src/modules'),
-      '@scss': path.resolve('./assets/scss'),
+      '@assets': path.resolve('./assets'),
     },
     extensions: ['.ts', '.tsx', '.js', '.jsx', '.json', 'scss']
   },
@@ -71,6 +71,10 @@ module.exports = {
           { loader: 'postcss-loader', options: postCSSLoaderOptions },
           { loader: 'sass-loader' },
         ],
+      },
+      {
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
       },
     ]
   },

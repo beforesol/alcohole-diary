@@ -35,8 +35,8 @@
       "@constants/*": [
         "./constants/*",
       ],
-      "@scss/*": [
-        "./assets/scss/*",
+      "@assets/*": [
+        "../assets/*",
       ],
     },
     "allowSyntheticDefaultImports": true,
