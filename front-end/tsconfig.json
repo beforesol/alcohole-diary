@@ -6,37 +6,37 @@
         "./@types"
       ],
       "@cores/*": [
-        "./src/cores/*",
+        "./cores/*",
       ],
       "@utils/*": [
-        "./src/utils/*",
+        "./utils/*",
       ],
       "@hooks/*": [
-        "./src/hooks/*",
+        "./hooks/*",
       ],
       "@reducers/*": [
-        "./src/reducers/*",
+        "./reducers/*",
       ],
       "@pages/*": [
-        "./src/pages/*",
+        "./pages/*",
       ],
       "@components/*": [
-        "./src/components/*",
+        "./components/*",
       ],
       "@config/*": [
-        "./src/config/*",
+        "./config/*",
       ],
       "@modules/*": [
-        "./src/modules/*",
+        "./modules/*",
       ],
       "@api/*": [
-        "./src/api/*",
+        "./api/*",
       ],
       "@constants/*": [
-        "./src/constants/*",
+        "./constants/*",
       ],
-      "@scss/*": [
-        "./assets/scss/*",
+      "@assets/*": [
+        "../assets/*",
       ],
     },
     "allowSyntheticDefaultImports": true,
