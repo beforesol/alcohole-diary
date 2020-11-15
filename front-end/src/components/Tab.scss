@@ -1,0 +1,26 @@
+.tab {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  height: 50px;
+  line-height: 50px;
+  background-color: #ececec;
+  .tab_btn {
+    width: 25%;
+    height: 100%;
+    & + .tab_btn {
+      position: relative;
+      &:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 1px;
+        background-color: #000;
+        content: '';
+      }
+    }
+  }
+}

@@ -21,6 +21,12 @@ export const ROUTE_PATH: {
     name: 'login',
     title: '로그인',
   },
+  MODE: {
+    path: `/mode`,
+    url: `/mode`,
+    name: 'mode',
+    title: '모드',
+  },
 };
 
 export const routes = [
@@ -38,6 +44,11 @@ export const routes = [
     ...ROUTE_PATH.LOGIN,
     exact: true,
     component: lazy(() => import('@pages/Login')),
+  },
+  {
+    ...ROUTE_PATH.MODE,
+    exact: true,
+    component: lazy(() => import('@pages/Mode')),
   },
   {
     // 정의된 라우터 이외 path는 홈으로 이동

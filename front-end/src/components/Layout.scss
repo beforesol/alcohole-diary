@@ -1,12 +1,11 @@
 .header {
   position: relative;
   height: 30px;
-  padding: 20px;
   text-align: center;
   .logout_btn {
     position: absolute;
-    top: 22px;
-    left: 20px;
+    top: 2px;
+    left: 0;
   }
   .icon_logout {
     width: 25px;
@@ -26,7 +25,7 @@
   }
   .mode_btn {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 0;
+    right: 0;
   }
 }
