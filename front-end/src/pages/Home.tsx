@@ -25,7 +25,6 @@ const Home: React.FC<IOwnProps> = ({
       <div><button onClick={() => setShowLayer(true)}>켬 </button></div>
       <Category />
       {showLayer && (
-
         <div className={cx('layer')}>
           레이어
           <div><button onClick={() => setShowLayer(false)}>끔 </button></div>

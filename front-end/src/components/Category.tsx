@@ -10,7 +10,7 @@ interface IOwnProps {
 const Category: React.FC<IOwnProps> = ({
 }) => {
 
-const [AlcoholList, setAlcoholList] = useState([
+  const [AlcoholList, setAlcoholList] = useState([
     {
       id: 1,
       type: '소주',
@@ -60,17 +60,17 @@ const [AlcoholList, setAlcoholList] = useState([
     setAlcoholList(list)
   };
 
-return(
-  <>
-  { 
-    AlcoholList.map((Alcohol) =>
-        <div className={cx('list_item')} key={Alcohol.id}>{Alcohol.type} {Alcohol.count} {Alcohol.unit}
-          got <button onClick={() => handleClickPlus(Alcohol.id)} className={cx('count_button')}>+</button>
-          <button onClick={() => handleClickMinus(Alcohol.id)} className={cx('count_button')}>-</button>
-        </div>
-      )
-  }
-  </>
+  return (
+    <>
+      {
+        AlcoholList.map((Alcohol) =>
+          <div className={cx('list_item')} key={Alcohol.id}>{Alcohol.type} {Alcohol.count} {Alcohol.unit}
+            <button onClick={() => handleClickPlus(Alcohol.id)} className={cx('count_button')}>+</button>
+            <button onClick={() => handleClickMinus(Alcohol.id)} className={cx('count_button')}>-</button>
+          </div>
+        )
+      }
+    </>
 
   )
 };
