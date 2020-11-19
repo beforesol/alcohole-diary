@@ -27,6 +27,36 @@ export const ROUTE_PATH: {
     name: 'mode',
     title: '모드',
   },
+  INVITE: {
+    path: `/invite`,
+    url: `/invite`,
+    name: 'invite',
+    title: '초대',
+  },
+  SELECT: {
+    path: `/select`,
+    url: `/select`,
+    name: 'select',
+    title: '주종선택',
+  },
+  ROOM: {
+    path: `/room`,
+    url: `/room`,
+    name: 'room',
+    title: '방만들기/방수정하기',
+  },
+  WRITE: {
+    path: `/write`,
+    url: `/write`,
+    name: 'write',
+    title: '추가/수정',
+  },
+  STATISTICS: {
+    path: `/statistics`,
+    url: `/statistics`,
+    name: 'statistics',
+    title: '통계',
+  },
 };
 
 export const routes = [
@@ -49,6 +79,31 @@ export const routes = [
     ...ROUTE_PATH.MODE,
     exact: true,
     component: lazy(() => import('@pages/Mode')),
+  },
+  {
+    ...ROUTE_PATH.INVITE,
+    exact: true,
+    component: lazy(() => import('@pages/Invite')),
+  },
+  {
+    ...ROUTE_PATH.SELECT,
+    exact: true,
+    component: lazy(() => import('@pages/Select')),
+  },
+  {
+    ...ROUTE_PATH.ROOM,
+    exact: true,
+    component: lazy(() => import('@pages/Room')),
+  },
+  {
+    ...ROUTE_PATH.STATISTICS,
+    exact: true,
+    component: lazy(() => import('@pages/Statistics')),
+  },
+  {
+    ...ROUTE_PATH.WRTIE,
+    exact: true,
+    component: lazy(() => import('@pages/Write')),
   },
   {
     // 정의된 라우터 이외 path는 홈으로 이동

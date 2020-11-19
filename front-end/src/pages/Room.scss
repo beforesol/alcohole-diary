@@ -1,0 +1,79 @@
+.room {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  background-color: #fff;
+  .thumb_area {
+    position: relative;
+    overflow: hidden;
+    height: 200px;
+    .cover {
+      width: 100%;
+    }
+    .file_input {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      opacity: 0;
+    }
+    .text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #fff;
+    }
+  }
+  .info_area {
+    padding: 20px;
+    .info {
+      & + .info {
+        margin-top: 20px;
+      }
+    }
+    .text {
+      margin-top: 10px;
+    }
+    .profile_area {
+      margin-top: 10px;
+    }
+    .title_area {
+      position: relative;
+    }
+    .list_set {
+      overflow-x: hidden;
+      overflow-y: scroll;
+      margin-top: 30px;
+      height: 170px;
+      .list {
+        & + .list {
+          margin-top: 10px;
+        }
+      }
+    }
+    .invite_btn {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+    .btn_area {
+      margin-top: 10px;
+      text-align: center;
+    }
+    .btn {
+      width: 60px;
+      height: 30px;
+      border-radius: 2px;
+      background-color: #2196f3;
+      color: #fff;
+      & + .btn {
+        margin-left: 10px;
+      }
+    }
+  }
+}
