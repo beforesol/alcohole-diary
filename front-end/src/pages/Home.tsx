@@ -85,6 +85,7 @@ const Home: React.FC<IOwnProps> = ({
         </div>
       )}
       {showLayer && (
+
         <div className={cx('layer')}>
           레이어
           <div><button onClick={() => setShowLayer(false)}>끔 </button></div>
