@@ -65,7 +65,7 @@ return(
   { 
     AlcoholList.map((Alcohol) =>
         <div className={cx('list_item')} key={Alcohol.id}>{Alcohol.type} {Alcohol.count} {Alcohol.unit}
-<button onClick={() => handleClickPlus(Alcohol.id)} className={cx('count_button')}>+</button>
+          got <button onClick={() => handleClickPlus(Alcohol.id)} className={cx('count_button')}>+</button>
           <button onClick={() => handleClickMinus(Alcohol.id)} className={cx('count_button')}>-</button>
         </div>
       )
