@@ -1,0 +1,27 @@
+.statistics {
+  padding: 0 20px;
+  .btn_area {
+    text-align: center;
+    .btn {
+      width: 70px;
+      height: 30px;
+      border-radius: 5px;
+      background-color: #2196f3;
+      color: #fff;
+      & + .btn {
+        margin-left: 10px;
+      }
+    }
+  }
+  .info_area {
+    margin-top: 20px;
+    .list_set {
+      margin-top: 10px;
+    }
+  }
+  .chart_area {
+    margin-top: 20px;
+    height: 300px;
+    border: 1px solid #ccc;
+  }
+}
