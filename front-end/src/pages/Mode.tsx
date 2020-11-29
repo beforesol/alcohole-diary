@@ -21,7 +21,11 @@ const Mode: React.FC<IOwnProps> = ({
         </Link>
         <h2 className={cx('title')}>모드선택</h2>
       </div>
-      <button type="button" className={cx('personal_mode')}>개인모드</button>
+
+      <Link
+        to={ROUTE_PATH.HOME.path}
+        type="button"
+        className={cx('personal_mode')}> 개인모드</Link>
       <ul className={cx('group_set_list')}>
         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map(item => (
           <li className={cx('list')} key={item}>
