@@ -1,4 +1,16 @@
 .home {
   padding: 0 20px;
+  .add_btn {
+    position: fixed;
+    left: 50%;
+    bottom: 70px;
+    width: 90px;
+    height: 30px;
+    line-height: 30px;
+    margin-left: -25px;
+    background-color: #eee;
+    border-radius: 10px;
+    text-align: center;
+  }
 }
 
