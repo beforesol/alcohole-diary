@@ -3,10 +3,12 @@ import { Action, configureStore } from '@reduxjs/toolkit';
 import { ThunkAction } from 'redux-thunk';
 
 import UserReducer from '@reducers/UserReducer';
+import ModeReducer from '@reducers/ModeReducer';
 
 
 const rootReducer = combineReducers({
-  user: UserReducer
+  user: UserReducer,
+  mode: ModeReducer
 });
 
 declare global {
