@@ -4,6 +4,9 @@ import styles from './Mode.scss';
 import { Link } from 'react-router-dom';
 import Close from '@assets/img/svg/icon_x.svg';
 import { ROUTE_PATH } from '../routes';
+import { useDispatch } from 'react-redux';
+import { setMode } from '@reducers/ModeReducer';
+import { Mode as Modetype } from '@constants/Mode';
 
 const cx = classNames.bind(styles);
 
@@ -13,6 +16,16 @@ interface IOwnProps {
 const Mode: React.FC<IOwnProps> = ({
 
 }) => {
+  const dispatch = useDispatch();
+
+  const handleClickPersonalMode = () => {
+    dispatch(setMode(Modetype.PERSONAL));
+  };
+
+  const handleClickGroupMode = () => {
+    dispatch(setMode(Modetype.GROUP));
+  };
+
   return (
     <div className={cx('mode')}>
       <div className={cx('title_area')}>
@@ -25,11 +38,12 @@ const Mode: React.FC<IOwnProps> = ({
       <Link
         to={ROUTE_PATH.HOME.path}
         type="button"
-        className={cx('personal_mode')}> 개인모드</Link>
+        className={cx('personal_mode')}
+        onClick={handleClickPersonalMode}>개인모드</Link>
       <ul className={cx('group_set_list')}>
         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map(item => (
           <li className={cx('list')} key={item}>
-            <button type="button">
+            <Link to={ROUTE_PATH.HOME.path} onClick={handleClickGroupMode}>
               <div className={cx('thumb_area')}>
                 <img src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F27738433597DCB1312" alt="임시이미지" className={cx('thumb')} />
               </div>
@@ -39,7 +53,7 @@ const Mode: React.FC<IOwnProps> = ({
                   <div className={cx('count')}>인원 수 2명</div>
                 </div>
               </div>
-            </button>
+            </Link>
           </li>
         ))}
       </ul>

@@ -3,9 +3,11 @@ import classNames from 'classnames/bind';
 import styles from './Header.scss';
 import { Link } from 'react-router-dom';
 import { ROUTE_PATH } from '../routes';
-import Logout from '@assets/img/svg/icon_logout.svg';
+import Personal from '@assets/img/svg/icon_user.svg';
+import Group from '@assets/img/svg/icon_group.svg';
 import { RootState } from '@config/store';
 import { useSelector } from 'react-redux';
+import { Mode } from '@constants/Mode';
 
 const cx = classNames.bind(styles);
 
@@ -15,6 +17,7 @@ interface IOwnProps {
 const Header: React.FC<IOwnProps> = ({
 }) => {
   const { thumbnail_image_url } = useSelector((state: RootState) => state.user.profile.kakao_account.profile);
+  const { mode } = useSelector((state: RootState) => state.mode);
 
 
   return (
@@ -30,7 +33,12 @@ const Header: React.FC<IOwnProps> = ({
       <Link
         to={ROUTE_PATH.MODE.path}
         className={cx('mode_btn')}>
-        <span>모드</span>
+        {mode === Mode.PERSONAL && (
+          <Personal />
+        )}
+        {mode === Mode.GROUP && (
+          <Group />
+        )}
       </Link>
     </div>
   );
