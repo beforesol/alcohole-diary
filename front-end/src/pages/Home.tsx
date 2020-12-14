@@ -4,6 +4,7 @@ import styles from './Home.scss';
 import { Link } from 'react-router-dom';
 import Calendar from '@components/Calendar';
 import Controller from '@components/Controller';
+import { ROUTE_PATH } from '../routes';
 
 const cx = classNames.bind(styles);
 
@@ -16,6 +17,7 @@ const Home: React.FC<IOwnProps> = ({
     <div className={cx('home')}>
       <Calendar />
       <Controller />
+      <Link to={ROUTE_PATH.SELECT.path} className={cx('add_btn')}>추가하기</Link>
     </div>
   );
 };
