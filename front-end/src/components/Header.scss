@@ -5,18 +5,18 @@
   text-align: center;
   .logout_btn {
     position: absolute;
+    overflow: hidden;
     top: 22px;
     left: 20px;
-  }
-  .icon_logout {
-    width: 25px;
-    height: 25px;
-    vertical-align: top;
-  }
-  .icon_user {
     width: 30px;
     height: 30px;
-    vertical-align: top;
+    border-radius: 50%;
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
   }
   .title {
     display: inline-block;

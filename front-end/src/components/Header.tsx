@@ -4,7 +4,8 @@ import styles from './Header.scss';
 import { Link } from 'react-router-dom';
 import { ROUTE_PATH } from '../routes';
 import Logout from '@assets/img/svg/icon_logout.svg';
-import User from '@assets/img/svg/icon_user.svg';
+import { RootState } from '@config/store';
+import { useSelector } from 'react-redux';
 
 const cx = classNames.bind(styles);
 
@@ -13,13 +14,15 @@ interface IOwnProps {
 
 const Header: React.FC<IOwnProps> = ({
 }) => {
+  const { thumbnail_image_url } = useSelector((state: RootState) => state.user.profile.kakao_account.profile);
+
+
   return (
     <div className={cx('header')}>
       <Link
         to={ROUTE_PATH.LOGIN.path}
         className={cx('logout_btn')}>
-        <Logout className={cx('icon_logout')} />
-        <span className="blind">로그아웃</span>
+        <img src={thumbnail_image_url} alt="" />
       </Link>
       <h1 className={cx('title')}>
         <Link to={ROUTE_PATH.HOME.path}>Alcohole Diary</Link>
@@ -27,8 +30,7 @@ const Header: React.FC<IOwnProps> = ({
       <Link
         to={ROUTE_PATH.MODE.path}
         className={cx('mode_btn')}>
-        <User className={cx('icon_user')} />
-        <span className="blind">모드</span>
+        <span>모드</span>
       </Link>
     </div>
   );
