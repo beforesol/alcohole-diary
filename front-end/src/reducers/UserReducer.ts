@@ -39,7 +39,6 @@ export const slice = createSlice({
   initialState: userState,
   reducers: {
     setUserProfile(state: UserState, action) {
-      console.log('action', action);
       state.profile = action.payload;
     },
   },

@@ -35,7 +35,6 @@ const LoginProvider = ({ children }: { children: any }) => {
           url: "/v2/user/me",
           success: (profile: UserProfile) => {
             dispatch(setUserProfile(profile))
-            // dispatch()
           },
         });
       }
