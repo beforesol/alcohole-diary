@@ -72,7 +72,7 @@ declare module 'alcoholeDiary' {
 
     export interface UserProfile {
         /** 회원번호 */
-        id: number;
+        id: string;
         /** 카카오계정 정보 */
         kakao_account: KakaoAccount;
         /** 카카오싱크 간편가입을 통해 로그인한 시각, UTC */

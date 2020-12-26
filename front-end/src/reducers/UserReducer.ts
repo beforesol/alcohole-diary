@@ -7,7 +7,7 @@ type UserState = {
 
 const userState: UserState = {
   profile: {
-    id: 0,
+    id: '',
     kakao_account: {
       profile: {
         nickname: '',
