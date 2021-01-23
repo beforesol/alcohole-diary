@@ -4,6 +4,8 @@ import { KakaoLoginProps, LoginResponse, UserProfile } from 'alcoholeDiary';
 import styles from './KakaoLogin.scss';
 import classNames from 'classnames/bind';
 import { useLogin } from '@hooks/useLogin';
+import { useDispatch } from 'react-redux';
+import { setUserProfile } from '@reducers/UserReducer';
 
 const cx = classNames.bind(styles);
 
@@ -22,6 +24,7 @@ const KakaoLogin: React.FC<KakaoLoginProps> = ({
   persistAccessToken = true,
 }) => {
   const { isLoggedin, setIsLoggedin } = useLogin();
+  const dispatch = useDispatch();
 
   const login = () => {
     window.Kakao?.Auth.login({
@@ -40,6 +43,7 @@ const KakaoLogin: React.FC<KakaoLoginProps> = ({
     window.Kakao?.Auth.logout(() => {
       onLogout?.();
       setIsLoggedin(false);
+      dispatch(setUserProfile(null));
     });
   }
 
