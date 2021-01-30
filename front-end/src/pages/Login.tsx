@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from './Login.scss';
-import KakaoLogin from '@components/KakaoLogin';
 import { ROUTE_PATH } from '../routes';
+import KakaoLogin from '@src/components/KakaoLogin';
 
 const cx = classNames.bind(styles);
 

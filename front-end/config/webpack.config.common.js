@@ -25,25 +25,14 @@ const postCSSLoaderOptions = {
 };
 
 module.exports = {
-  entry: ['./src/index.tsx', './assets/css/common.css'],
+  entry: ['./src/index.tsx', './src/assets/css/common.css'],
   output: {
     filename: 'bundle.[hash].js',
     publicPath: '/'
   },
   resolve: {
     alias: {
-      '@cores': path.resolve(`./src/cores`),
-      '@utils': path.resolve('./src/utils'),
-      '@hooks': path.resolve('./src/hooks'),
-      '@reducers': path.resolve('./src/reducers'),
-      '@pages': path.resolve('./src/pages'),
-      '@components': path.resolve('./src/components'),
-      '@config': path.resolve('./src/config'),
-      '@modules': path.resolve('./src/modules'),
-      '@api': path.resolve('./src/api'),
-      '@constants': path.resolve('./src/constants'),
-      '@modules': path.resolve('./src/modules'),
-      '@assets': path.resolve('./assets'),
+      '@src': path.resolve(`./src`),
     },
     extensions: ['.ts', '.tsx', '.js', '.jsx', '.json', 'scss']
   },

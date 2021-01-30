@@ -1,38 +1,20 @@
 import React, { useState } from 'react';
 import styles from './Controller.scss';
 import classNames from 'classnames/bind';
-import Close from '@assets/img/svg/icon_x.svg';
+import Close from '@src/assets/img/svg/icon_x.svg';
+import { IRecode, EInputMode, EUnit } from '@src/models/recode';
 
 const cx = classNames.bind(styles);
 
 interface IOwnProps {
 };
 
-const enum EInputMode {
-  TEXT = 'text',
-  INPUT = 'input',
-};
-
-const enum EUnit {
-  BOTTLE = '병',
-  CUP = '잔',
-  ML = 'ml',
-}
-
-interface IAlcoholeList {
-  id: number;
-  type: string;
-  count: number | string;
-  unit: EUnit;
-  inputMode: EInputMode;
-}
-
 const Controller: React.FC<IOwnProps> = ({
 }) => {
   const [selectedItem, setSeletedItem] = useState(0);
 
   const [showUnitLayer, setShowUnitLayer] = useState(false);
-  const [AlcoholeList, setAlcoholeList] = useState<IAlcoholeList[]>([
+  const [AlcoholeList, setAlcoholeList] = useState<IRecode[]>([
     {
       id: 1,
       type: '소주',
@@ -125,7 +107,7 @@ const Controller: React.FC<IOwnProps> = ({
   }
 
   const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>, id: number) => {
-    const list = AlcoholeList.map(item => {
+    const list: IRecode[] = AlcoholeList.map(item => {
       if (item.id === id) {
         return {
           ...item,

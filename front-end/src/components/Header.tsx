@@ -3,11 +3,11 @@ import classNames from 'classnames/bind';
 import styles from './Header.scss';
 import { Link } from 'react-router-dom';
 import { ROUTE_PATH } from '../routes';
-import Personal from '@assets/img/svg/icon_user.svg';
-import Group from '@assets/img/svg/icon_group.svg';
-import { RootState } from '@config/store';
+import Personal from '@src/assets/img/svg/icon_user.svg';
+import Group from '@src/assets/img/svg/icon_group.svg';
+import { RootState } from '@src/config/store';
 import { useSelector } from 'react-redux';
-import { Mode } from '@constants/Mode';
+import { Mode } from '@src/constants/Mode';
 
 const cx = classNames.bind(styles);
 

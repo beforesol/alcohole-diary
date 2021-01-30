@@ -1,11 +1,11 @@
 import React from 'react';
-import { KakaoLoginProps, LoginResponse, UserProfile } from 'alcoholeDiary';
+import { kakaoLoginProps, LoginResponse, UserProfile } from '@src/models/kakaoLogin';
 
 import styles from './KakaoLogin.scss';
 import classNames from 'classnames/bind';
-import { useLogin } from '@hooks/useLogin';
+import { useLogin } from '@src/hooks/useLogin';
 import { useDispatch } from 'react-redux';
-import { setUserProfile } from '@reducers/UserReducer';
+import { setUserProfile } from '@src/reducers/UserReducer';
 
 const cx = classNames.bind(styles);
 
@@ -16,7 +16,7 @@ declare global {
 }
 
 
-const KakaoLogin: React.FC<KakaoLoginProps> = ({
+const KakaoLogin: React.FC<kakaoLoginProps> = ({
   onLogout,
   onSuccess,
   onFail,
