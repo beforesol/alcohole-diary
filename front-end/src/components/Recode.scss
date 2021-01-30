@@ -1,0 +1,23 @@
+.recode {
+  overflow: hidden;
+  padding: 20px 10px;
+  background-color: #ccc;;
+  & + .recode {
+    margin-top: 10px;
+  }
+  .text {
+    float: left;
+  }
+  .btn_area {
+    float: right;
+    .btn {
+      height: 20px;
+      padding: 0 10px;
+      background-color: #eee;
+      vertical-align: top;
+      & + .btn {
+        margin-left: 5px;
+      }
+    }
+  }
+}

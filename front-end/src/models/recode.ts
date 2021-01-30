@@ -10,7 +10,7 @@ export enum EUnit {
 }
 
 export interface IRecode {
-  id: number;
+  id: string;
   type: string;
   count: number | string;
   unit: EUnit;
