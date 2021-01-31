@@ -14,5 +14,4 @@ export interface IRecode {
   type: string;
   count: number | string;
   unit: EUnit;
-  inputMode: EInputMode
 }
