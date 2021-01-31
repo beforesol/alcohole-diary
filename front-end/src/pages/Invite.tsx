@@ -2,10 +2,10 @@ import React from 'react';
 import classNames from 'classnames/bind';
 import styles from './Invite.scss';
 import { Link } from 'react-router-dom';
-import Close from '@assets/img/svg/icon_x.svg';
+import Close from '@src/assets/img/svg/icon_x.svg';
 import { ROUTE_PATH } from '../routes';
-import Search from '@assets/img/svg/icon_search.svg';
-import Profile from '@components/Profile';
+import Search from '@src/assets/img/svg/icon_search.svg';
+import Profile from '@src/components/Profile';
 
 const cx = classNames.bind(styles);
 

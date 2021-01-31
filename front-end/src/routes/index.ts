@@ -63,47 +63,47 @@ export const routes = [
   {
     ...ROUTE_PATH.HOME,
     exact: true,
-    component: lazy(() => import('@pages/Home')),
+    component: lazy(() => import('@src/pages/Home')),
   },
   {
     ...ROUTE_PATH.DETAIL,
     exact: true,
-    component: lazy(() => import('@pages/Detail')),
+    component: lazy(() => import('@src/pages/Detail')),
   },
   {
     ...ROUTE_PATH.LOGIN,
     exact: true,
-    component: lazy(() => import('@pages/Login')),
+    component: lazy(() => import('@src/pages/Login')),
   },
   {
     ...ROUTE_PATH.MODE,
     exact: true,
-    component: lazy(() => import('@pages/Mode')),
+    component: lazy(() => import('@src/pages/Mode')),
   },
   {
     ...ROUTE_PATH.INVITE,
     exact: true,
-    component: lazy(() => import('@pages/Invite')),
+    component: lazy(() => import('@src/pages/Invite')),
   },
   {
     ...ROUTE_PATH.SELECT,
     exact: true,
-    component: lazy(() => import('@pages/Select')),
+    component: lazy(() => import('@src/pages/Select')),
   },
   {
     ...ROUTE_PATH.ROOM,
     exact: true,
-    component: lazy(() => import('@pages/Room')),
+    component: lazy(() => import('@src/pages/Room')),
   },
   {
     ...ROUTE_PATH.STATISTICS,
     exact: true,
-    component: lazy(() => import('@pages/Statistics')),
+    component: lazy(() => import('@src/pages/Statistics')),
   },
   {
     ...ROUTE_PATH.WRTIE,
     exact: true,
-    component: lazy(() => import('@pages/Write')),
+    component: lazy(() => import('@src/pages/Write')),
   },
   {
     // 정의된 라우터 이외 path는 홈으로 이동
@@ -111,7 +111,7 @@ export const routes = [
     url: `/`,
     name: 'home',
     exact: true,
-    component: lazy(() => import('@pages/Home')),
+    component: lazy(() => import('@src/pages/Home')),
     title: '홈',
   },
 ];

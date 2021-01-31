@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from './Home.scss';
 import { Link } from 'react-router-dom';
-import Calendar from '@components/Calendar';
-import Controller from '@components/Controller';
+import Calendar from '@src/components/Calendar';
+import Controller from '@src/components/Controller';
 import { ROUTE_PATH } from '../routes';
 
 const cx = classNames.bind(styles);

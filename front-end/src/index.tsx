@@ -4,11 +4,11 @@ import { Switch, BrowserRouter, Route } from 'react-router-dom';
 import { routes } from './routes';
 import { Provider } from 'react-redux';
 import store from './config/store';
-import Loading from '@components/Loading';
-import NotFound from '@components/NotFound';
-import Login from '@pages/Login';
-import LoginProvider, { useLogin } from '@hooks/useLogin';
-import Layout from '@components/Layout';
+import Loading from '@src/components/Loading';
+import NotFound from '@src/components/NotFound';
+import Login from '@src/pages/Login';
+import LoginProvider, { useLogin } from '@src/hooks/useLogin';
+import Layout from '@src/components/Layout';
 
 const Main = () => {
   const { isLoggedin, isLoadedKaKaoSdk } = useLogin();

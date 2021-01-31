@@ -2,11 +2,11 @@ import React from 'react';
 import classNames from 'classnames/bind';
 import styles from './Mode.scss';
 import { Link } from 'react-router-dom';
-import Close from '@assets/img/svg/icon_x.svg';
+import Close from '@src/assets/img/svg/icon_x.svg';
 import { ROUTE_PATH } from '../routes';
 import { useDispatch } from 'react-redux';
-import { setMode } from '@reducers/ModeReducer';
-import { Mode as Modetype } from '@constants/Mode';
+import { setMode } from '@src/reducers/ModeReducer';
+import { Mode as Modetype } from '@src/constants/Mode';
 
 const cx = classNames.bind(styles);
 

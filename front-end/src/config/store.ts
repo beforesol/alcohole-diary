@@ -2,13 +2,15 @@ import { combineReducers } from 'redux';
 import { Action, configureStore } from '@reduxjs/toolkit';
 import { ThunkAction } from 'redux-thunk';
 
-import UserReducer from '@reducers/UserReducer';
-import ModeReducer from '@reducers/ModeReducer';
+import UserReducer from '@src/reducers/UserReducer';
+import ModeReducer from '@src/reducers/ModeReducer';
+import RecodeReducer from '@src/reducers/RecodeReducer';
 
 
 const rootReducer = combineReducers({
   user: UserReducer,
-  mode: ModeReducer
+  mode: ModeReducer,
+  recode: RecodeReducer,
 });
 
 declare global {
