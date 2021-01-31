@@ -4,13 +4,13 @@ import { ThunkAction } from 'redux-thunk';
 
 import UserReducer from '@src/reducers/UserReducer';
 import ModeReducer from '@src/reducers/ModeReducer';
-import recodeReducer from '@src/reducers/recodeReducer';
+import RecodeReducer from '@src/reducers/RecodeReducer';
 
 
 const rootReducer = combineReducers({
   user: UserReducer,
   mode: ModeReducer,
-  recode: recodeReducer,
+  recode: RecodeReducer,
 });
 
 declare global {
