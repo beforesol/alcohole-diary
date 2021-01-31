@@ -2,9 +2,9 @@ import React from 'react';
 import classNames from 'classnames/bind';
 import styles from './Write.scss';
 import { Link } from 'react-router-dom';
-import Close from '@assets/img/svg/icon_x.svg';
+import Close from '@src/assets/img/svg/icon_x.svg';
 import { ROUTE_PATH } from '../routes';
-import Search from '@assets/img/svg/icon_search.svg';
+import Search from '@src/assets/img/svg/icon_search.svg';
 
 const cx = classNames.bind(styles);
 

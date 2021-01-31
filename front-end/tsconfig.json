@@ -5,38 +5,8 @@
       "alcoholeDiary": [
         "./@types"
       ],
-      "@cores/*": [
-        "./cores/*",
-      ],
-      "@utils/*": [
-        "./utils/*",
-      ],
-      "@hooks/*": [
-        "./hooks/*",
-      ],
-      "@reducers/*": [
-        "./reducers/*",
-      ],
-      "@pages/*": [
-        "./pages/*",
-      ],
-      "@components/*": [
-        "./components/*",
-      ],
-      "@config/*": [
-        "./config/*",
-      ],
-      "@modules/*": [
-        "./modules/*",
-      ],
-      "@api/*": [
-        "./api/*",
-      ],
-      "@constants/*": [
-        "./constants/*",
-      ],
-      "@assets/*": [
-        "../assets/*",
+      "@src/*": [
+        "./*"
       ],
     },
     "allowSyntheticDefaultImports": true,

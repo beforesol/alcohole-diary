@@ -1,4 +1,4 @@
-import { Mode } from '@constants/Mode';
+import { Mode } from '@src/constants/Mode';
 import { PayloadAction, createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 type ModeState = {

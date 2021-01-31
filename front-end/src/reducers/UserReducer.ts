@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { UserProfile } from 'alcoholeDiary';
+import { UserProfile } from '@src/models/kakaoLogin';
 
 type UserState = {
   profile: UserProfile | null;

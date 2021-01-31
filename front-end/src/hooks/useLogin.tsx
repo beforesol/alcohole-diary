@@ -1,8 +1,8 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { loadJs } from '@utils/loadJs';
-import { UserProfile } from 'alcoholeDiary';
+import { loadJs } from '@src/utils/loadJs';
+import { UserProfile } from '@src/models/kakaoLogin';
 import { useDispatch } from 'react-redux';
-import { setUserProfile } from '@reducers/UserReducer';
+import { setUserProfile } from '@src/reducers/UserReducer';
 import { firestore } from "../firebase";
 import { COLLECTION } from "../firebase/collection";
 

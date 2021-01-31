@@ -3,10 +3,10 @@ import classNames from 'classnames/bind';
 import styles from './Layout.scss';
 import { Link } from 'react-router-dom';
 import { ROUTE_PATH } from '../routes';
-import Logout from '@assets/img/svg/icon_logout.svg';
-import User from '@assets/img/svg/icon_user.svg';
-import Header from '@components/Header';
-import Tab from '@components/Tab';
+import Logout from '@src/assets/img/svg/icon_logout.svg';
+import User from '@src/assets/img/svg/icon_user.svg';
+import Header from '@src/components/Header';
+import Tab from '@src/components/Tab';
 
 const cx = classNames.bind(styles);
 
