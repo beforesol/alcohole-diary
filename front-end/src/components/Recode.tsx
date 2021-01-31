@@ -3,7 +3,7 @@ import styles from './Recode.scss';
 import classNames from 'classnames/bind';
 import { IRecode, EInputMode, EUnit } from '@src/models/recode';
 import { useDispatch } from 'react-redux';
-import { updateRecode, updateCount, updateInputMode } from '@src/reducers/RecodeReducer';
+import { updateRecode } from '@src/reducers/RecodeReducer';
 
 const cx = classNames.bind(styles);
 
@@ -19,35 +19,36 @@ const Recode: React.FC<IOwnProps> = ({
   onSetShowUnitLayer
 }) => {
   const dispatch = useDispatch();
+  const [count, setCount] = useState(recode.count);
+  const [inputMode, setInputMode] = useState(EInputMode.TEXT);
 
   const handleClickText = () => {
-    dispatch(updateInputMode({ id: recode.id, inputMode: EInputMode.INPUT }));
+    setInputMode(EInputMode.INPUT);
   }
 
   const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    dispatch(updateCount({ id: recode.id, count: e.currentTarget.value }));
+    setCount(e.currentTarget.value)
   }
 
-  const handleBlurInput = (e: React.FocusEvent<HTMLInputElement>) => {
-    const { value } = e.currentTarget;
-    const isNumber = !Number.isNaN(Number(value));
+  const handleBlurInput = (_e: React.FocusEvent<HTMLInputElement>) => {
+    const isNumber = !Number.isNaN(Number(count));
 
     if (!isNumber) alert('숫자타입을 입력해주세요');
+    setInputMode(EInputMode.TEXT);
 
     dispatch(updateRecode({
       ...recode,
-      count: isNumber ? recode.count : 0,
-      inputMode: EInputMode.TEXT,
+      count: isNumber ? count : recode.count,
     }));
   }
 
   const handleClickPlus = () => {
-    dispatch(updateCount({ id: recode.id, count: Number(recode.count) + 1 }));
+    dispatch(updateRecode({ ...recode, id: recode.id, count: Number(recode.count) + 1 }));
   }
 
   const handleClickMinus = () => {
     if (recode.count > 0) {
-      dispatch(updateCount({ id: recode.id, count: Number(recode.count) - 1 }));
+      dispatch(updateRecode({ ...recode, id: recode.id, count: Number(recode.count) - 1 }));
     }
   }
 
@@ -60,12 +61,12 @@ const Recode: React.FC<IOwnProps> = ({
     <li className={cx('recode')} key={recode.id}>
       <span className={cx('text')} onClick={handleClickText}>
         {recode.type}
-        {recode.inputMode === EInputMode.TEXT ? (
+        {inputMode === EInputMode.TEXT ? (
           <span>
             {recode.count}
           </span>
         ) : (
-            <input type="text" value={recode.count} onChange={handleChangeInput} onBlur={handleBlurInput} />
+            <input type="text" value={count} onChange={handleChangeInput} onBlur={handleBlurInput} />
           )}
         {recode.unit}
       </span>

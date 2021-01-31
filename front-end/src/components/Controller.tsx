@@ -5,7 +5,7 @@ import Close from '@src/assets/img/svg/icon_x.svg';
 import { EUnit } from '@src/models/recode';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@src/config/store';
-import { updateUnit } from '@src/reducers/RecodeReducer';
+import { updateRecode } from '@src/reducers/RecodeReducer';
 import Recode from './Recode';
 
 const cx = classNames.bind(styles);
@@ -15,8 +15,8 @@ interface IOwnProps {
 
 const Controller: React.FC<IOwnProps> = ({
 }) => {
-  const [selectedRecodeId, setSeletedRecodeId] = useState('');
 
+  const [selectedRecodeId, setSeletedRecodeId] = useState('');
   const [showUnitLayer, setShowUnitLayer] = useState(false);
   const { recode } = useSelector((state: RootState) => state.recode);
   const dispatch = useDispatch();
@@ -24,7 +24,9 @@ const Controller: React.FC<IOwnProps> = ({
 
 
   const handleClickChangeUnit = (unit: EUnit) => {
-    dispatch(updateUnit({ id: selectedRecodeId, unit }));
+    const selectedRecode = recode.list.find(recode => recode.id === selectedRecodeId);
+
+    dispatch(updateRecode({ ...selectedRecode, unit }));
     setShowUnitLayer(false);
   };
 

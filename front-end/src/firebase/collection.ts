@@ -1,3 +1,4 @@
 export const COLLECTION = {
-  USER: 'users'
+  USER: 'users',
+  RECODE: 'recode',
 }
