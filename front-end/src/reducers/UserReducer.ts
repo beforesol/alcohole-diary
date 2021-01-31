@@ -2,36 +2,11 @@ import { PayloadAction, createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { UserProfile } from 'alcoholeDiary';
 
 type UserState = {
-  profile: UserProfile;
+  profile: UserProfile | null;
 }
 
 const userState: UserState = {
-  profile: {
-    id: 0,
-    kakao_account: {
-      profile: {
-        nickname: '',
-        profile_image: '',
-        thumbnail_image_url: '',
-        profile_needs_agreement: true
-      },
-      email: '',
-      age_range: '',
-      birthday: '',
-      birthyear: '',
-      gender: 'femail',
-      phone_number: '',
-      ci: ''
-    },
-    synched_at: '',
-    connected_at: '',
-    properties: {
-      nickname: '',
-      profile_image: '',
-      thumbnail_image_url: '',
-      profile_needs_agreement: true
-    }
-  }
+  profile: null
 };
 
 export const slice = createSlice({

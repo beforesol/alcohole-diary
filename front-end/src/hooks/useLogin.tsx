@@ -3,6 +3,8 @@ import { loadJs } from '@utils/loadJs';
 import { UserProfile } from 'alcoholeDiary';
 import { useDispatch } from 'react-redux';
 import { setUserProfile } from '@reducers/UserReducer';
+import { firestore } from "../firebase";
+import { COLLECTION } from "../firebase/collection";
 
 const LoginContext = createContext({
   isLoadedKaKaoSdk: false,
@@ -34,6 +36,20 @@ const LoginProvider = ({ children }: { children: any }) => {
         window.Kakao?.API.request({
           url: "/v2/user/me",
           success: (profile: UserProfile) => {
+            const { id, properties } = profile;
+            const userStore = firestore.collection(COLLECTION.USER).doc(id.toString());
+
+            userStore.get().then((doc) => {
+              if (!doc.data()) {
+                const { nickname, profile_image } = properties;
+
+                userStore.set({
+                  id,
+                  nickname,
+                  profile_image
+                });
+              }
+            });
             dispatch(setUserProfile(profile))
           },
         });

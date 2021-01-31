@@ -8,8 +8,11 @@
   line-height: 50px;
   background-color: #ececec;
   .tab_btn {
+    display: inline-block;
     width: 25%;
     height: 100%;
+    vertical-align: top;
+    text-align: center;
     & + .tab_btn {
       position: relative;
       &:before {
