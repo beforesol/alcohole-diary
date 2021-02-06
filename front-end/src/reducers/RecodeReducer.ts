@@ -57,16 +57,10 @@ export const initRecodeList = createAsyncThunk<any, any, any>(
 export const updateRecode = createAsyncThunk<any, any, any>(
   'recode/updateRecode',
   async (recode, thunkAPI) => {
+    // TODO: doc.id 와 field.id sync 맞추기
     try {
       const recodeCollection = firestore.collection(COLLECTION.RECODE);
       const recodeData = await recodeCollection.where('id', '==', recode.id).get()
-
-      // if (recodeData.empty) {
-      //   recodeCollection.add({
-      //     ...recode,
-      //     id: uuidv4()
-      //   })
-      // }
 
       recodeData.forEach(doc => {
         recodeCollection.doc(doc.id).set({
