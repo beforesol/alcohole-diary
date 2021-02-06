@@ -1,36 +1,9 @@
 import { PayloadAction, createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import store from '@src/config/store';
+import { firestore } from '@src/firebase';
+import { COLLECTION } from '@src/firebase/collection';
 import { EInputMode, EUnit, IRecode } from '@src/models/recode';
-
-const demo = [
-  {
-    id: '1',
-    type: '소주',
-    count: 0,
-    unit: EUnit.BOTTLE,
-    inputMode: EInputMode.TEXT,
-  },
-  {
-    id: '2',
-    type: '맥주',
-    count: 0,
-    unit: EUnit.BOTTLE,
-    inputMode: EInputMode.TEXT,
-  },
-  {
-    id: '3',
-    type: '와인',
-    count: 0,
-    unit: EUnit.BOTTLE,
-    inputMode: EInputMode.TEXT,
-  },
-  {
-    id: '4',
-    type: '막걸리',
-    count: 0,
-    unit: EUnit.BOTTLE,
-    inputMode: EInputMode.TEXT,
-  }
-]
+import { v4 as uuidv4 } from 'uuid';
 
 interface IRecodeState {
   recode: {
@@ -40,69 +13,104 @@ interface IRecodeState {
   }
 }
 
+const demo = [
+  {
+    id: uuidv4(),
+    type: '소주',
+    count: 0,
+    unit: EUnit.BOTTLE
+  }
+]
+
 const initialState: IRecodeState = {
   recode: {
     isLoaded: false,
     isFailed: false,
-    list: demo,
+    list: [],
   }
 };
+
+const syncRecode = async () => {
+  const recodeCollection = firestore.collection(COLLECTION.RECODE);
+
+  const recodeData = await recodeCollection.get();
+  const recodeArr: IRecode[] = [];
+
+  recodeData.forEach((doc: any) => {
+    recodeArr.push(doc.data());
+  })
+
+  return recodeArr;
+}
+
+export const initRecodeList = createAsyncThunk<any, any, any>(
+  'recode/initRecodeList',
+  async (thunkAPI) => {
+    try {
+      return await syncRecode();
+    } catch (err) {
+      return thunkAPI.rejectWithValue('Something went wrong.');
+    }
+  }
+);
+
+export const updateRecode = createAsyncThunk<any, any, any>(
+  'recode/updateRecode',
+  async (recode, thunkAPI) => {
+    try {
+      const recodeCollection = firestore.collection(COLLECTION.RECODE);
+      const recodeData = await recodeCollection.where('id', '==', recode.id).get()
+
+      // if (recodeData.empty) {
+      //   recodeCollection.add({
+      //     ...recode,
+      //     id: uuidv4()
+      //   })
+      // }
+
+      recodeData.forEach(doc => {
+        recodeCollection.doc(doc.id).set({
+          ...recode
+        });
+      })
+
+      return await syncRecode();
+    } catch (err) {
+      return thunkAPI.rejectWithValue('Something went wrong.');
+    }
+  }
+);
 
 export const slice = createSlice({
   name: '@src/models/recode',
   initialState,
   reducers: {
-    updateRecode(state: IRecodeState, action: PayloadAction<IRecode>) {
-      const recode = action.payload;
-
-      // TODO: Firebase Data를 직접 바꿀 수 있도록 수정
-      const index = state.recode.list.findIndex(item => item.id === recode.id);
-
-      state.recode.list[index] = recode;
-    },
-    updateUnit(state: IRecodeState, action: PayloadAction<{ id: string, unit: EUnit }>) {
-      const { id, unit } = action.payload;
-
-      // TODO: Firebase Data를 직접 바꿀 수 있도록 수정
-      const index = state.recode.list.findIndex(recode => recode.id === id);
-
-      state.recode.list[index] = {
-        ...state.recode.list[index],
-        unit
-      }
-    },
-    updateInputMode(state: IRecodeState, action: PayloadAction<{ id: string, inputMode: EInputMode }>) {
-      const { id, inputMode } = action.payload;
-
-      // TODO: Firebase Data를 직접 바꿀 수 있도록 수정
-      const index = state.recode.list.findIndex(recode => recode.id === id);
-
-      state.recode.list[index] = {
-        ...state.recode.list[index],
-        inputMode
-      }
-    },
-    updateCount(state: IRecodeState, action: PayloadAction<{ id: string, count: string | number }>) {
-      const { id, count } = action.payload;
-
-      // TODO: Firebase Data를 직접 바꿀 수 있도록 수정
-      const index = state.recode.list.findIndex(recode => recode.id === id);
-
-      state.recode.list[index] = {
-        ...state.recode.list[index],
-        count
-      }
-    },
   },
   extraReducers: {
+    [initRecodeList.fulfilled.type]: (state: IRecodeState, action) => {
+      const recodeList = action.payload;
+      state.recode.list = recodeList;
+    },
+    [initRecodeList.rejected.type]: (state: IRecodeState, _action) => {
+      state.recode = {
+        ...state.recode,
+        isFailed: true,
+      };
+    },
+    [updateRecode.fulfilled.type]: (state: IRecodeState, action) => {
+      const recodeList = action.payload;
+      state.recode.list = recodeList;
+    },
+    [updateRecode.rejected.type]: (state: IRecodeState, _action) => {
+      state.recode = {
+        ...state.recode,
+        isFailed: true,
+      };
+    },
   },
 });
 
 export const {
-  updateRecode,
-  updateUnit,
-  updateInputMode,
-  updateCount
 } = slice.actions;
 
 const recodeReducer = slice.reducer;
