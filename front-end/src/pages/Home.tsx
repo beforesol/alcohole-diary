@@ -8,7 +8,7 @@ import { ROUTE_PATH } from '../routes';
 import { useDispatch, useSelector } from 'react-redux';
 import { initRecodeList } from '@src/reducers/RecodeReducer';
 import { RootState } from '@src/config/store';
-import { EMode } from '@src/constants/Mode';
+import { EMode } from '@src/models/Mode';
 
 const cx = classNames.bind(styles);
 

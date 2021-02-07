@@ -13,6 +13,9 @@
     height: 100%;
     vertical-align: top;
     text-align: center;
+    &.active {
+      font-weight: bold;
+    }
     & + .tab_btn {
       position: relative;
       &:before {

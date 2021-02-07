@@ -6,7 +6,7 @@ import Close from '@src/assets/img/svg/icon_x.svg';
 import { ROUTE_PATH } from '../routes';
 import { useDispatch } from 'react-redux';
 import { setMode } from '@src/reducers/ModeReducer';
-import { EMode as Modetype } from '@src/constants/Mode';
+import { EMode as Modetype } from '@src/models/Mode';
 
 const cx = classNames.bind(styles);
 

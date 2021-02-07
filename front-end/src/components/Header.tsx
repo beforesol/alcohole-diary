@@ -7,7 +7,7 @@ import Personal from '@src/assets/img/svg/icon_user.svg';
 import Group from '@src/assets/img/svg/icon_group.svg';
 import { RootState } from '@src/config/store';
 import { useSelector } from 'react-redux';
-import { EMode } from '@src/constants/Mode';
+import { EMode } from '@src/models/Mode';
 
 const cx = classNames.bind(styles);
 

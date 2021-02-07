@@ -1,0 +1,6 @@
+export enum ETab {
+  CALENDAR = 'CALENDAR',
+  STATISTICS = 'STATISTICS',
+  AMUGUNA = 'AMUGUNA',
+  SETTING = 'SETTING',
+}

@@ -1,4 +1,4 @@
-import { EMode } from '@src/constants/Mode';
+import { EMode } from '@src/models/Mode';
 import { PayloadAction, createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 type TModeState = {
