@@ -11,6 +11,19 @@
       & + .btn {
         margin-left: 10px;
       }
+      &.active {
+        position: relative;
+        &:after {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          border: 1px solid #000;
+          border-radius: 5px;
+          content: '';
+        }
+      }
     }
   }
   .info_area {

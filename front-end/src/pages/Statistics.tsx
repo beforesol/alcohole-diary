@@ -18,7 +18,8 @@ const Statistics: React.FC<IOwnProps> = ({
   return (
     <div className={cx('statistics')}>
       <div className={cx('btn_area')}>
-        <button type="button" className={cx('btn')}>일</button>
+        {/* [D] 선택 시 .active 추가해 주세요.  */}
+        <button type="button" className={cx('btn', 'active')}>일</button>
         <button type="button" className={cx('btn')}>주</button>
         <button type="button" className={cx('btn')}>월</button>
         <button type="button" className={cx('btn')}>년</button>
