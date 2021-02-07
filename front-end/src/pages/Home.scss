@@ -23,6 +23,7 @@
     &.active {
       background-color: #00c73c;
       .statistics_toggle_btn {
+        left: initial;
         right: 3px;
       }
     }

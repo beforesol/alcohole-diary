@@ -7,7 +7,7 @@ import Personal from '@src/assets/img/svg/icon_user.svg';
 import Group from '@src/assets/img/svg/icon_group.svg';
 import { RootState } from '@src/config/store';
 import { useSelector } from 'react-redux';
-import { Mode } from '@src/constants/Mode';
+import { EMode } from '@src/constants/Mode';
 
 const cx = classNames.bind(styles);
 
@@ -18,7 +18,6 @@ const Header: React.FC<IOwnProps> = ({
 }) => {
   const thumbnail_image_url = useSelector((state: RootState) => state.user.profile?.kakao_account.profile.thumbnail_image_url);
   const { mode } = useSelector((state: RootState) => state.mode);
-
 
   return (
     <div className={cx('header')}>
@@ -33,10 +32,10 @@ const Header: React.FC<IOwnProps> = ({
       <Link
         to={ROUTE_PATH.MODE.path}
         className={cx('mode_btn')}>
-        {mode === Mode.PERSONAL && (
+        {mode === EMode.PERSONAL && (
           <Personal />
         )}
-        {mode === Mode.GROUP && (
+        {mode === EMode.GROUP && (
           <Group />
         )}
       </Link>

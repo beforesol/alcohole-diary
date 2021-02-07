@@ -1,19 +1,19 @@
-import { Mode } from '@src/constants/Mode';
+import { EMode } from '@src/constants/Mode';
 import { PayloadAction, createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-type ModeState = {
-  mode: Mode;
+type TModeState = {
+  mode: EMode;
 }
 
-const modeState: ModeState = {
-  mode: Mode.PERSONAL
+const modeState: TModeState = {
+  mode: EMode.PERSONAL
 };
 
 export const slice = createSlice({
   name: 'mode',
   initialState: modeState,
   reducers: {
-    setMode(state: ModeState, action) {
+    setMode(state: TModeState, action) {
       state.mode = action.payload;
     },
   },
