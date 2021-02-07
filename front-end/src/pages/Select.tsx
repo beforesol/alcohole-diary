@@ -28,14 +28,17 @@ const Select: React.FC<IOwnProps> = ({
         <ul className={cx('list_set')}>
           {[1, 2, 3].map(_item => (
             <li className={cx('list')}>
-              <button type="button" className={cx('info_area')}>
+              <Link
+                to={ROUTE_PATH.WRITE.path}
+                type='button'
+                className={cx('info_area')}>
                 <div className={cx('thumb')}>
                   <img src="https://www.polinews.co.kr/data/photos/20200208/art_15822778407469_5cb30d.jpg" className={cx('profile')} />
                 </div>
                 <div className={cx('name')}>
                   <span className={cx('text')}>소주</span>
                 </div>
-              </button>
+              </Link>
             </li>
           ))}
         </ul>
