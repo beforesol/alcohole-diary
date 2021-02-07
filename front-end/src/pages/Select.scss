@@ -24,6 +24,18 @@
         vertical-align: top;
       }
     }
+    .add_btn {
+      position: fixed;
+      left: 50%;
+      bottom: 70px;
+      width: 90px;
+      height: 30px;
+      line-height: 30px;
+      margin-left: -45px;
+      background-color: #eee;
+      border-radius: 10px;
+      text-align: center;
+    }
   }
   .search_area {
     position: relative;

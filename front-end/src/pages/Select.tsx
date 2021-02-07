@@ -42,6 +42,7 @@ const Select: React.FC<IOwnProps> = ({
             </li>
           ))}
         </ul>
+        <Link to={ROUTE_PATH.ADDALCOHOL.path} className={cx('add_btn')}>주종추가</Link>
       </div>
     </div>
   );
