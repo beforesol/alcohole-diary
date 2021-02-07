@@ -27,7 +27,7 @@
     bottom: 0;
     left: 0;
     z-index: 100;
-    &:before {
+    .dimmed {
       position: absolute;
       top: 0;
       right: 0;
