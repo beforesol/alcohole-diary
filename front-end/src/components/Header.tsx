@@ -27,7 +27,7 @@ const Header: React.FC<IOwnProps> = ({
         <img src={thumbnail_image_url} alt="" />
       </Link>
       <h1 className={cx('title')}>
-        <Link to={ROUTE_PATH.HOME.path}>Alcohole Diary</Link>
+        <Link to={mode === EMode.GROUP ? ROUTE_PATH.ROOM.path : ROUTE_PATH.HOME.path}>Alcohole Diary</Link>
       </h1>
       <Link
         to={ROUTE_PATH.MODE.path}

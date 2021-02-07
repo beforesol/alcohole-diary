@@ -24,7 +24,6 @@ const Home: React.FC<IOwnProps> = ({
   useEffect(() => {
     dispatch(initRecodeList({}));
   }, []);
-  console.log(useStatistics);
 
   return (
     <div className={cx('home')}>
