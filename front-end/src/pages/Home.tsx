@@ -24,6 +24,9 @@ const Home: React.FC<IOwnProps> = ({
       <Calendar />
       <Controller />
       <Link to={ROUTE_PATH.SELECT.path} className={cx('add_btn')}>추가하기</Link>
+      <div className={cx('statistics_toggle')}>
+        <button type="button" className={cx('statistics_toggle_btn')} />
+      </div>
     </div>
   );
 };
