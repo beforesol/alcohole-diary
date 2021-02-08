@@ -4,8 +4,8 @@ import styles from './Invite.scss';
 import { Link } from 'react-router-dom';
 import Close from '@src/assets/img/svg/icon_x.svg';
 import { ROUTE_PATH } from '../routes';
-import Search from '@src/assets/img/svg/icon_search.svg';
 import Profile from '@src/components/Profile';
+import Search from '@src/components/Search';
 
 const cx = classNames.bind(styles);
 
@@ -22,13 +22,10 @@ const Invite: React.FC<IOwnProps> = ({
           <Close className={cx('icon_close')} />
         </Link>
         <h2 className={cx('title')}>초대할 친구를 선택해주세요.</h2>
-        <div className={cx('search_area')}>
-          <Search className={cx('icon_search')} />
-          <input type="text" className={cx('search_input')} />
-        </div>
+        <Search />
         <ul className={cx('list_set')}>
           {[1, 2, 3].map(_item => (
-            <li className={cx('list')}>
+            <li className={cx('list')} key={_item}>
               <Profile />
             </li>
           ))}
