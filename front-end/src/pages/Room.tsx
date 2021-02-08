@@ -22,6 +22,7 @@ const Room: React.FC<IOwnProps> = ({
         <img src="https://i2.wp.com/thesciencelife.com/wp-content/uploads/2017/12/the-customary-62252_960_720.jpg?fit=770%2C335&resize=1280%2C720" alt="커버" className={cx('cover')} />
         <input type="file" className={cx('file_input')} />
         <span className={cx('text')}>방 커버사진</span>
+        <Link to={ROUTE_PATH.HOME.path} className={cx('home_link')}>홈</Link>
       </div>
       <div className={cx('info_area')}>
         <div className={cx('info')}>
@@ -52,7 +53,7 @@ const Room: React.FC<IOwnProps> = ({
           <button type="button" className={cx('btn')}>저장</button>
           <button type="button" className={cx('btn')}>나가기</button>
         </div>
-        <ConfirmLayer text={'나가시겠습니까?'} />
+        {/* <ConfirmLayer text={'나가시겠습니까?'} /> */}
       </div>
     </div>
   );
