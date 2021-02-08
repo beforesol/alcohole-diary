@@ -83,7 +83,7 @@ const Recode: React.FC<IOwnProps> = ({
       </div>
       {showUnitLayer && (
         <div className={cx('unit_layer')}>
-          <div className={cx('dimmed')} />
+          <div className={cx('dimmed')} onClick={() => setShowUnitLayer(false)} />
           <div className={cx('layer_inner')}>
             <button type="button" className={cx('layer_item')} onClick={() => handleClickChangeUnit(EUnit.CUP)}>잔</button>
             <button type="button" className={cx('layer_item')} onClick={() => handleClickChangeUnit(EUnit.ML)}>ml</button>

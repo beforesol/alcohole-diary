@@ -51,6 +51,12 @@ export const ROUTE_PATH: {
     name: 'write',
     title: '추가/수정',
   },
+  ADDALCOHOL: {
+    path: `/addalcohol`,
+    url: `/addalcohol`,
+    name: 'addalcohol',
+    title: '주종추가',
+  },
   STATISTICS: {
     path: `/statistics`,
     url: `/statistics`,
@@ -99,6 +105,11 @@ export const routes = [
     ...ROUTE_PATH.STATISTICS,
     exact: true,
     component: lazy(() => import('@src/pages/Statistics')),
+  },
+  {
+    ...ROUTE_PATH.ADDALCOHOL,
+    exact: true,
+    component: lazy(() => import('@src/pages/AddAlcohol')),
   },
   {
     ...ROUTE_PATH.WRTIE,
