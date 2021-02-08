@@ -6,6 +6,7 @@ import Close from '@src/assets/img/svg/icon_x.svg';
 import { ROUTE_PATH } from '../routes';
 import Search from '@src/assets/img/svg/icon_search.svg';
 import Profile from '@src/components/Profile';
+import ConfirmLayer from '@src/components/ConfirmLayer';
 
 const cx = classNames.bind(styles);
 
@@ -51,6 +52,7 @@ const Room: React.FC<IOwnProps> = ({
           <button type="button" className={cx('btn')}>저장</button>
           <button type="button" className={cx('btn')}>나가기</button>
         </div>
+        <ConfirmLayer text={'나가시겠습니까?'} />
       </div>
     </div>
   );

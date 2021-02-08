@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import Close from '@src/assets/img/svg/icon_x.svg';
 import { ROUTE_PATH } from '../routes';
 import Search from '@src/assets/img/svg/icon_search.svg';
+import ConfirmLayer from '@src/components/ConfirmLayer';
 
 const cx = classNames.bind(styles);
 
@@ -36,6 +37,7 @@ const Write: React.FC<IOwnProps> = ({
         <button type="button" className={cx('btn')}>삭제하기</button>
         <button type="button" className={cx('btn')}>저장하기</button>
       </div>
+      <ConfirmLayer text={'삭제하시겠습니까?'} />
     </div>
   );
 };
