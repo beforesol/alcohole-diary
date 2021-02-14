@@ -27,6 +27,7 @@
       left: 50%;
       transform: translate(-50%, -50%);
       color: #fff;
+
     }
   }
   .info_area {
@@ -38,6 +39,10 @@
     }
     .text {
       margin-top: 10px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      word-wrap:normal;
     }
     .profile_area {
       margin-top: 10px;
