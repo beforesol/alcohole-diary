@@ -15,7 +15,7 @@ const Main = () => {
 
   return (
     <>
-      {isLoadedKaKaoSdk ? (
+      {/* {isLoadedKaKaoSdk ? (
         <>
           {isLoggedin ? (
             <BrowserRouter>
@@ -41,7 +41,24 @@ const Main = () => {
         </>
       ) : (
           <Loading />
-        )}
+        )} */}
+      <BrowserRouter>
+        <Layout >
+          <Suspense fallback={<Loading />}>
+            <Switch>
+              {routes.map((route, index) =>
+                <Route
+                  key={index}
+                  exact={route.exact}
+                  path={route.path}
+                  component={route.component}
+                />
+              )}
+              <Route component={NotFound} />
+            </Switch>
+          </Suspense>
+        </Layout>
+      </BrowserRouter>
     </>
   )
 }
