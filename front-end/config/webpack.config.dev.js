@@ -3,7 +3,7 @@ module.exports = {
   mode: 'development',
   devtool: 'inline-source-map',
   devServer: {
-    port: 8888,
+    port: 8080,
     hot: true,
     historyApiFallback: true,
     open: true,
