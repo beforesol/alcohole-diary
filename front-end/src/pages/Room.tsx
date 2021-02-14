@@ -1,12 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from './Room.scss';
 import { Link } from 'react-router-dom';
-import Close from '@src/assets/img/svg/icon_x.svg';
 import { ROUTE_PATH } from '../routes';
-import Search from '@src/assets/img/svg/icon_search.svg';
 import Profile from '@src/components/Profile';
-import ConfirmLayer from '@src/components/ConfirmLayer';
+import Invite from '@src/components/Invite';
 
 const cx = classNames.bind(styles);
 
@@ -16,6 +14,8 @@ interface IOwnProps {
 const Room: React.FC<IOwnProps> = ({
 
 }) => {
+  const [showInviteLayer, setShowInviteLayer] = useState<boolean>(false);
+
   return (
     <div className={cx('room')}>
       <div className={cx('thumb_area')}>
@@ -55,6 +55,9 @@ const Room: React.FC<IOwnProps> = ({
         </div>
         {/* <ConfirmLayer text={'나가시겠습니까?'} /> */}
       </div>
+      {showInviteLayer && (
+        <Invite />
+      )}
     </div>
   );
 };

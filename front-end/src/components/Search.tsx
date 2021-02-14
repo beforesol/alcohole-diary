@@ -16,7 +16,7 @@ const Search: React.FC<IOwnProps> = ({
       <input type="text" className={cx('search_input')} />
       <ul className={cx('auto_complete_set')}>
         {[1, 2, 3].map(_item => (
-          <li className={cx('auto_complete_list')}>
+          <li className={cx('auto_complete_list')} key={_item}>
             <button
               type='button'
               className={cx('list_btn')}>
