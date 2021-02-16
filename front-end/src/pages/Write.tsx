@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from './Write.scss';
 import { Link } from 'react-router-dom';
@@ -8,12 +8,19 @@ import Search from '@src/assets/img/svg/icon_search.svg';
 
 const cx = classNames.bind(styles);
 
+
+
 interface IOwnProps {
 };
 
 const Write: React.FC<IOwnProps> = ({
-
 }) => {
+  const [showUnitLayer, setShowUnitLayer] = useState(false);
+
+  const handleClickUnit = () => {
+    setShowUnitLayer(true);
+  }
+
   return (
     <div className={cx('write')}>
       <div className={cx('title_area')}>
@@ -26,9 +33,9 @@ const Write: React.FC<IOwnProps> = ({
         <input type="text" className={cx('input')} />
       </div>
       <div className={cx('select_area')}>
-        <button type="button" className={cx('selected')} aria-expanded={false}>1잔</button>
+        <button onClick={handleClickUnit} type="button" className={cx('selected')} aria-expanded={showUnitLayer}>1잔</button>
         <ul className={cx('list_set')}>
-          <li className={cx('list')}><button className={cx('select_btn')}>ml</button></li>
+          <li className={cx('list')}><button className={cx('select_btn')} >ml</button></li>
           <li className={cx('list')}><button className={cx('select_btn')}>병</button></li>
         </ul>
       </div>
