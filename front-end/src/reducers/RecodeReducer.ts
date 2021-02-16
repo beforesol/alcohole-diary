@@ -2,7 +2,7 @@ import { PayloadAction, createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import store from '@src/config/store';
 import { firestore } from '@src/firebase';
 import { COLLECTION } from '@src/firebase/collection';
-import { EInputMode, EUnit, IRecode } from '@src/models/recode';
+import { EInputMode, EUnit, IRecode } from '@src/models/Recode';
 import { v4 as uuidv4 } from 'uuid';
 
 interface IRecodeState {
