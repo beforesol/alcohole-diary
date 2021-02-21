@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from './Write.scss';
+import { EUnit, IWrite } from '@src/models/write';
 import { Link } from 'react-router-dom';
 import Close from '@src/assets/img/svg/icon_x.svg';
 import { ROUTE_PATH } from '../routes';
@@ -8,18 +9,22 @@ import Search from '@src/assets/img/svg/icon_search.svg';
 
 const cx = classNames.bind(styles);
 
-
-
 interface IOwnProps {
 };
 
 const Write: React.FC<IOwnProps> = ({
 }) => {
   const [showUnitLayer, setShowUnitLayer] = useState(false);
+  const [unit, setUnit] = useState<EUnit>(EUnit.BOTTLE);
 
   const handleClickUnit = () => {
     setShowUnitLayer(true);
   }
+
+  const handleClickChangeUnit = (unit: EUnit) => {
+    setShowUnitLayer(false);
+    setUnit(unit);
+  };
 
   return (
     <div className={cx('write')}>
@@ -33,10 +38,11 @@ const Write: React.FC<IOwnProps> = ({
         <input type="text" className={cx('input')} />
       </div>
       <div className={cx('select_area')}>
-        <button onClick={handleClickUnit} type="button" className={cx('selected')} aria-expanded={showUnitLayer}>1잔</button>
+        <button type="button" className={cx('selected')} onClick={handleClickUnit} aria-expanded={showUnitLayer}>{unit}</button>
         <ul className={cx('list_set')}>
-          <li className={cx('list')}><button className={cx('select_btn')} >ml</button></li>
-          <li className={cx('list')}><button className={cx('select_btn')}>병</button></li>
+          <li className={cx('list')}><button className={cx('select_btn')} onClick={() => handleClickChangeUnit(EUnit.CUP)}>잔</button></li>
+          <li className={cx('list')}><button className={cx('select_btn')} onClick={() => handleClickChangeUnit(EUnit.ML)}>ml</button></li>
+          <li className={cx('list')}><button className={cx('select_btn')} onClick={() => handleClickChangeUnit(EUnit.BOTTLE)}>병</button></li>
         </ul>
       </div>
       <div className={cx('btn_area')}>
