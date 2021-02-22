@@ -3,4 +3,4 @@ export enum EStatistics {
     WEEK = '주',
     MONTH = '월',
     YEAR = '년',
-  }
+}

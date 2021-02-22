@@ -57,7 +57,7 @@ const Mode: React.FC<IOwnProps> = ({
           </li>
         ))}
       </ul>
-      <Link to={ROUTE_PATH.SELECT.path} className={cx('add_btn')}>방만들기</Link>
+      <Link to={ROUTE_PATH.ROOM.path} className={cx('add_btn')}>방만들기</Link>
     </div>
   );
 };
