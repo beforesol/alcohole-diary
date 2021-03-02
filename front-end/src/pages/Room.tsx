@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 import styles from './Room.scss';
 import { Link } from 'react-router-dom';
@@ -14,6 +14,7 @@ interface IOwnProps {
 const Room: React.FC<IOwnProps> = ({
 
 }) => {
+  const [title, setTitle] = useState<string>('술에 취하고 너에게 취하고');
   const [showInviteLayer, setShowInviteLayer] = useState<boolean>(false);
 
   return (
@@ -27,7 +28,7 @@ const Room: React.FC<IOwnProps> = ({
       <div className={cx('info_area')}>
         <div className={cx('info')}>
           <strong className={cx('title')}>방 제목</strong>
-          <p className={cx('text')}>술에 취하고 너에게 취하고</p>
+          <input className={cx('text')} value={title} onChange={(e) => setTitle(e.currentTarget.value)}/>
         </div>
         <div className={cx('info')}>
           <strong className={cx('title')}>방장</strong>
