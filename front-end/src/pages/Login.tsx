@@ -15,8 +15,8 @@ const Login: React.FC<IOwnProps> = ({
     window.location.href = ROUTE_PATH.HOME.path;
   }
 
-  const handleFail = () => {
-    console.log('fail login');
+  const handleFail = (error: any) => {
+    console.log('fail login', error);
   }
 
   const handleLogout = () => {

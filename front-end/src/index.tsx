@@ -14,52 +14,52 @@ const Main = () => {
   const { isLoggedin, isLoadedKaKaoSdk } = useLogin();
 
   return (
-    // <>
-    //   {isLoadedKaKaoSdk ? (
-    //     <>
-    //       {isLoggedin ? (
-    //         <BrowserRouter>
-    //           <Layout >
-    //             <Suspense fallback={<Loading />}>
-    //               <Switch>
-    //                 {routes.map((route, index) =>
-    //                   <Route
-    //                     key={index}
-    //                     exact={route.exact}
-    //                     path={route.path}
-    //                     component={route.component}
-    //                   />
-    //                 )}
-    //                 <Route component={NotFound} />
-    //               </Switch>
-    //             </Suspense>
-    //           </Layout>
-    //         </BrowserRouter>
-    //       ) : (
-    //           <Login />
-    //         )}
-    //     </>
-    //   ) : (
-    //       <Loading />
-    //     )}
-    // </>
-    <BrowserRouter>
-      <Layout >
-        <Suspense fallback={<Loading />}>
-          <Switch>
-            {routes.map((route, index) =>
-              <Route
-                key={index}
-                exact={route.exact}
-                path={route.path}
-                component={route.component}
-              />
+    <>
+      {isLoadedKaKaoSdk ? (
+        <>
+          {isLoggedin ? (
+            <BrowserRouter>
+              <Layout >
+                <Suspense fallback={<Loading />}>
+                  <Switch>
+                    {routes.map((route, index) =>
+                      <Route
+                        key={index}
+                        exact={route.exact}
+                        path={route.path}
+                        component={route.component}
+                      />
+                    )}
+                    <Route component={NotFound} />
+                  </Switch>
+                </Suspense>
+              </Layout>
+            </BrowserRouter>
+          ) : (
+              <Login />
             )}
-            <Route component={NotFound} />
-          </Switch>
-        </Suspense>
-      </Layout>
-    </BrowserRouter>
+        </>
+      ) : (
+          <Loading />
+        )}
+    </>
+    // <BrowserRouter>
+    //   <Layout >
+    //     <Suspense fallback={<Loading />}>
+    //       <Switch>
+    //         {routes.map((route, index) =>
+    //           <Route
+    //             key={index}
+    //             exact={route.exact}
+    //             path={route.path}
+    //             component={route.component}
+    //           />
+    //         )}
+    //         <Route component={NotFound} />
+    //       </Switch>
+    //     </Suspense>
+    //   </Layout>
+    // </BrowserRouter>
   )
 }
 

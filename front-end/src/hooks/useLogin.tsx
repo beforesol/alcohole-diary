@@ -1,10 +1,11 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { loadJs } from '@src/utils/loadJs';
-import { UserProfile } from '@src/models/kakaoLogin';
+import { UserProfile } from '@src/models/KakaoLogin';
 import { useDispatch } from 'react-redux';
 import { setUserProfile } from '@src/reducers/UserReducer';
 import { firestore } from "../firebase";
 import { COLLECTION } from "../firebase/collection";
+import { initAlcoholeTypes } from '@src/data/alcoholeType';
 
 const LoginContext = createContext({
   isLoadedKaKaoSdk: false,
@@ -14,7 +15,7 @@ const LoginContext = createContext({
 
 const LoginProvider = ({ children }: { children: any }) => {
   const [isLoggedin, setIsLoggedin] = useState<boolean>(false);
-  const [isLoadedKaKaoSdk, setIsLoadedKaKaoSdk] = useState(false);
+  const [isLoadedKaKaoSdk, setIsLoadedKaKaoSdk] = useState<boolean>(false);
 
   const dispatch = useDispatch();
 
@@ -40,17 +41,23 @@ const LoginProvider = ({ children }: { children: any }) => {
             const userStore = firestore.collection(COLLECTION.USER).doc(id.toString());
 
             userStore.get().then((doc) => {
-              if (!doc.data()) {
-                const { nickname, profile_image } = properties;
+              const data = doc.data();
 
-                userStore.set({
+              if (!data) {
+                const { nickname, profile_image } = properties;
+                const newData = {
                   id,
                   nickname,
-                  profile_image
-                });
+                  profile_image,
+                  alcohole_types: initAlcoholeTypes,
+                };
+
+                userStore.set(newData);
+                dispatch(setUserProfile(newData));
+              } else {
+                dispatch(setUserProfile(data));
               }
             });
-            dispatch(setUserProfile(profile))
           },
         });
       }

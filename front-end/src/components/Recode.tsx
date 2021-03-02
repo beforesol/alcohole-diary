@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './Recode.scss';
 import classNames from 'classnames/bind';
-import { IRecode, EInputMode, EUnit } from '@src/models/recode';
+import { IRecode, EInputMode, EUnit } from '@src/models/Recode';
 import { useDispatch } from 'react-redux';
 import { updateRecode } from '@src/reducers/RecodeReducer';
 import Close from '@src/assets/img/svg/icon_x.svg';
