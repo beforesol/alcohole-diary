@@ -27,12 +27,12 @@ export const ROUTE_PATH: {
     name: 'mode',
     title: '모드',
   },
-  INVITE: {
-    path: `/invite`,
-    url: `/invite`,
-    name: 'invite',
-    title: '초대',
-  },
+  // INVITE: {
+  //   path: `/invite`,
+  //   url: `/invite`,
+  //   name: 'invite',
+  //   title: '초대',
+  // },
   SELECT: {
     path: `/select`,
     url: `/select`,
@@ -92,11 +92,11 @@ export const routes = [
     exact: true,
     component: lazy(() => import('@src/pages/Mode')),
   },
-  {
-    ...ROUTE_PATH.INVITE,
-    exact: true,
-    component: lazy(() => import('@src/pages/Invite')),
-  },
+  // {
+  //   ...ROUTE_PATH.INVITE,
+  //   exact: true,
+  //   component: lazy(() => import('@src/components/Invite')),
+  // },
   {
     ...ROUTE_PATH.SELECT,
     exact: true,

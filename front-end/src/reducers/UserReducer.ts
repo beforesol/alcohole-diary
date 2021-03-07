@@ -1,12 +1,12 @@
 import { PayloadAction, createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { UserProfile } from '@src/models/kakaoLogin';
+import { IUserInfo } from '@src/models/User';
 
 type UserState = {
-  profile: UserProfile | null;
+  info: IUserInfo | null;
 }
 
 const userState: UserState = {
-  profile: null
+  info: null
 };
 
 export const slice = createSlice({
@@ -14,7 +14,7 @@ export const slice = createSlice({
   initialState: userState,
   reducers: {
     setUserProfile(state: UserState, action) {
-      state.profile = action.payload;
+      state.info = action.payload;
     },
   },
   extraReducers: {

@@ -16,7 +16,7 @@ interface IOwnProps {
 
 const Header: React.FC<IOwnProps> = ({
 }) => {
-  const thumbnail_image_url = useSelector((state: RootState) => state.user.profile?.kakao_account.profile.thumbnail_image_url);
+  const thumbnail_image_url = useSelector((state: RootState) => state.user.info?.profile_image);
   const { mode } = useSelector((state: RootState) => state.mode);
 
   return (

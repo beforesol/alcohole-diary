@@ -29,6 +29,13 @@
       color: #fff;
 
     }
+    .home_link {
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      color: #fff;
+      font-size: 22px;
+   }
   }
   .info_area {
     padding: 20px;
@@ -38,11 +45,15 @@
       }
     }
     .text {
+      width: 100%;
+      height: 30px;
       margin-top: 10px;
       text-overflow: ellipsis;
       white-space: nowrap;
       overflow: hidden;
       word-wrap: normal;
+      border: 1px solid #ccc;
+      border-radius: 5px;
     }
     .profile_area {
       margin-top: 10px;

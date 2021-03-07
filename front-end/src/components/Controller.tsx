@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './Controller.scss';
 import classNames from 'classnames/bind';
-import { EUnit } from '@src/models/recode';
+import { EUnit } from '@src/models/Recode';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@src/config/store';
 import { updateRecode } from '@src/reducers/RecodeReducer';
