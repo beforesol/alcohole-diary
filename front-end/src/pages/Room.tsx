@@ -16,6 +16,9 @@ const Room: React.FC<IOwnProps> = ({
 }) => {
   const [title, setTitle] = useState<string>('술에 취하고 너에게 취하고');
   const [showInviteLayer, setShowInviteLayer] = useState<boolean>(false);
+  const handleClick = () => {
+    alert('삭제하시겠습니까?');
+  }
 
   return (
     <div className={cx('room')}>
@@ -50,7 +53,7 @@ const Room: React.FC<IOwnProps> = ({
           </ul>
         </div>
         <div className={cx('btn_area')}>
-          <button type="button" className={cx('btn')}>삭제</button>
+          <button onClick = {handleClick} type="button" className={cx('btn')} >삭제</button>
           <button type="button" className={cx('btn')}>저장</button>
           <button type="button" className={cx('btn')}>나가기</button>
         </div>
