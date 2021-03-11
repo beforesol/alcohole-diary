@@ -17,11 +17,14 @@ const Room: React.FC<IOwnProps> = ({
 }) => {
   const [title, setTitle] = useState<string>('술에 취하고 너에게 취하고');
   const [showInviteLayer, setShowInviteLayer] = useState<boolean>(false);
-  const [showAleatLayer, setshowAleatLayer] = useState<boolean>(false);
-  const handleClick = () => {
-    setshowAleatLayer(true);
+  const [showAleltLayer, setshowAleltLayer] = useState<boolean>(false);
+  const [showCloseLayer, setshowClostLayer] = useState<boolean>(false);
+  const handleAleltClick = () => {
+    setshowAleltLayer(true);
   }
-
+  const handleCloseClick = () => {
+    setshowClostLayer(true);
+  }
   return (
     <div className={cx('room')}>
       <div className={cx('thumb_area')}>
@@ -55,12 +58,15 @@ const Room: React.FC<IOwnProps> = ({
           </ul>
         </div>
         <div className={cx('btn_area')}>
-          <button onClick={handleClick} type="button" className={cx('btn')} >삭제</button>
-          {showAleatLayer && (
+          <button onClick={handleAleltClick} type="button" className={cx('btn')} >삭제</button>
+          {showAleltLayer && (
            <ConfirmLayer text={'삭제하시겠습니까?'} />
           )}
           <button type="button" className={cx('btn')}>저장</button>
-          <button type="button" className={cx('btn')}>나가기</button>
+          <button onClick={handleCloseClick}type="button" className={cx('btn')}>나가기</button>
+          {showCloseLayer && (
+           <ConfirmLayer text={'나가시겠습니까?'} />
+          )}
         </div>
         {/* <ConfirmLayer text={'나가시겠습니까?'} /> */}
       </div>
