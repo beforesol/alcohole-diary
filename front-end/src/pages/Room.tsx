@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { ROUTE_PATH } from '../routes';
 import Profile from '@src/components/Profile';
 import Invite from '@src/components/Invite';
+import ConfirmLayer from '@src/components/ConfirmLayer';
 
 const cx = classNames.bind(styles);
 
@@ -16,8 +17,9 @@ const Room: React.FC<IOwnProps> = ({
 }) => {
   const [title, setTitle] = useState<string>('술에 취하고 너에게 취하고');
   const [showInviteLayer, setShowInviteLayer] = useState<boolean>(false);
+  const [showAleatLayer, setshowAleatLayer] = useState<boolean>(false);
   const handleClick = () => {
-    alert('삭제하시겠습니까?');
+    setshowAleatLayer(true);
   }
 
   return (
@@ -31,7 +33,7 @@ const Room: React.FC<IOwnProps> = ({
       <div className={cx('info_area')}>
         <div className={cx('info')}>
           <strong className={cx('title')}>방 제목</strong>
-          <input className={cx('text')} value={title} onChange={(e) => setTitle(e.currentTarget.value)}/>
+          <input className={cx('text')} value={title} onChange={(e) => setTitle(e.currentTarget.value)} />
         </div>
         <div className={cx('info')}>
           <strong className={cx('title')}>방장</strong>
@@ -53,7 +55,10 @@ const Room: React.FC<IOwnProps> = ({
           </ul>
         </div>
         <div className={cx('btn_area')}>
-          <button onClick = {handleClick} type="button" className={cx('btn')} >삭제</button>
+          <button onClick={handleClick} type="button" className={cx('btn')} >삭제</button>
+          {showAleatLayer && (
+           <ConfirmLayer text={'삭제하시겠습니까?'} />
+          )}
           <button type="button" className={cx('btn')}>저장</button>
           <button type="button" className={cx('btn')}>나가기</button>
         </div>
